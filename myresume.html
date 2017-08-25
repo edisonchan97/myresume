@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小州州的动态简历</title>
+</head>
+<body>
+	<style id="nice"></style> 
+	 <pre id="content" style="color:black"></pre>
+	<div style="display:none" id="write">
+/* 额，开心~~因为我用的是js实现的*/ 
+body{
+	background:gray;
+}
+#content{
+	border:2px solid #fff;
+	padding:5px 0 5px 10px;
+	width:360px;
+	background:#C1D7A7;
+	margin-top:30px;
+	float:left;
+	height:520px;
+	overflow-y:scroll;
+	overflow-y:scroll;
+}
+/*额代码高亮确实是问题，不知道有没有别的办法*/
+/*听说你要看我的简历，ok 没问题*/
+/*先在右边整一张纸，我来写*/
+#show{
+	float:right;
+	border:2px solid #fff;
+	width:700px;
+	height:1000px;
+	background: #fff;
+	margin-right:90px;
+	margin-left:30px;
+	margin-top:30px;
+	position:realtive;
+}
+/*来张头像，看看长啥样*/
+#head{
+	width：150px;
+	height:200px;
+	background:url(xzz.jpg) no-repeat;
+	margin:30px 275px;
+}
+#info div{
+	margin-left:150px;
+	height:30px;
+	width:150px;
+	line-height:30px;
+
+}
+
+#name:after{
+	content:"姓名:陈卓州";
+}
+#sex:after{
+	content:"性别:男";
+}
+#garduate:after{
+	content:"毕业:黑龙江大学";
+}
+#tel:after{
+	content:"电话:13204637297";
+}
+	</div>
+	<div id="show">
+		<div id="head"></div>
+		<div id="info">
+			<div id="name"></div>
+			<div id="sex"></div>
+			<div id="garduate"></div>
+			<div id="tel"></div>
+		</div>
+	</div>
+	<script language="javascript">
+	var index=0;
+	var timer;
+	var word=document.getElementById("write").innerHTML;
+	function type(){
+	    document.getElementById("content").innerHTML = word.substring(0,index++);
+	    if(index>word.length){
+	    	clearInterval(timer);
+	    }
+	}
+	timer = setInterval(type, 10);
+	var styletimer;
+	function style(){
+	    document.getElementById("nice").innerHTML = word.substring(0,index++);
+	    if(index>word.length){
+	    	clearInterval(styletimer);
+	    	clearInterval(scrolltimer);
+	    }
+	}
+	styletimer = setInterval(style, 10);
+	</script>
+	<script src="jquery-1.12.4.min.js"></script> 
+	<script>
+
+		function autoscroll(){$("#content").scrollTop(10000);}
+	 var scrolltimer;
+	 scrolltimer = setInterval(autoscroll,10)
+	</script>
+</body>
+</html>
