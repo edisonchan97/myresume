@@ -3,25 +3,51 @@
 <head>
 	<meta charset="UTF-8">
 	<title>小州州的动态简历</title>
+	<style type="text/css">
+	ul,li{
+		list-style:none;
+	}
+	</style>
 </head>
 <body>
 	<style id="nice"></style> 
-	 <pre id="content" style="color:black"></pre>
+	 <pre id="content" ></pre>
 	<div style="display:none" id="write">
 /* 额，开心~~因为我用的是js实现的*/ 
+*{
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
 body{
 	background:gray;
+	font-family:Verdana;
 }
 #content{
 	border:2px solid #fff;
 	padding:5px 0 5px 10px;
 	width:360px;
+	color:#732D8B;
 	background:#C1D7A7;
 	margin-top:30px;
 	float:left;
+	font-weight:bold;
 	height:520px;
 	overflow-y:scroll;
-	overflow-y:scroll;
+	overflow-x:hidden;
+}
+html{
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+#content{
+  margin-left:10px;
+  -webkit-transition: none; 
+  transition: none;
+  display:inline-block;
+  position: fixed; 
+  left: 10px; top: 40px; 
+  -webkit-transform:  rotateY(15deg) translateZ(-100px) ;
+          transform:  rotateY(15deg) translateZ(-100px) ;
 }
 /*额代码高亮确实是问题，不知道有没有别的办法*/
 /*听说你要看我的简历，ok 没问题*/
@@ -30,12 +56,9 @@ body{
 	float:right;
 	border:2px solid #fff;
 	width:700px;
-	height:1000px;
+
 	background: #fff;
-	margin-right:90px;
-	margin-left:30px;
-	margin-top:30px;
-	position:realtive;
+	margin: 30px 90px 30px 30px;
 }
 /*来张头像，看看长啥样*/
 #head{
@@ -45,13 +68,12 @@ body{
 	margin:30px 275px;
 }
 #info div{
-	margin-left:150px;
+	margin-left:50px;
 	height:30px;
-	width:150px;
+	width:260px;
 	line-height:30px;
-
+	float:left;
 }
-
 #name:after{
 	content:"姓名:陈卓州";
 }
@@ -61,18 +83,116 @@ body{
 #garduate:after{
 	content:"毕业:黑龙江大学";
 }
-#tel:after{
-	content:"电话:13204637297";
+#email:after{
+	content:"邮箱:edisonzhuozhou@qq.com";
+}
+#info #introduce{
+	width:600px;
+	height:60px;
+	line-height:30px;
+}
+#introduce::after{
+	content:"&#10084自我介绍：本人学前端已经有近两年，前端很酷炫，所以我爱上了前端，可以说是始于颜值，陷于js，忠于代码。"
+}
+
+.fix{
+	*zoom:1;
+}
+.fix:after{
+	display:block; 
+	content:"clear"; 
+	height:0; 
+	clear:both; 
+	overflow:hidden; 
+	visibility:hidden;
+}
+#myskill:after{
+	content:"技能掌握";
+	color:#000;
+}
+#myproject:after{
+	content:"项目经历";
+	color:#000;
+}
+#myskill,#myproject{
+	margin:10px 0 10px 30px;
+
+}
+#skill li:first-child:after{
+	content:"&#9745 掌握Web开发技术(Javascript、HTML、CSS)，了解HTML5/CSS3 ，了解一些ES6新特性";
+}
+#skill li:nth-child(2):after{
+	content:"&#9745 对Web前端技术有强烈兴趣，有良好的学习能力和积极的进取心";
+}
+#skill li:nth-child(3):after{
+	content:"&#9745 对前端工程化与模块化开发有一定了解";
+}
+#skill li:nth-child(4):after{
+	content:"&#9745 熟悉基于Web的MVC/MVVM设计模式";
+}
+#skill li:nth-child(5):after{
+	content:"&#9745 使用Vue-cli，Express框架仿制开发过小项目";
+}
+#skill li:nth-child(6):after{
+	content:"&#9745 对算法、数据结构以及后端开发(PHP/Node.Js)有一定了解";
+}
+#skill li:last-child:after{
+	content:"&#9745 CET-4，能借助工具快速阅读技术相关英文API文档";
+}
+#project li:first-child:after{
+	content:"&#9733 深圳市鹏锋瑞装饰设计工程有限公司官网（即将上线）(2017年08月至今)"
+}
+#project li:nth-child(odd){
+	margin-left:20px;
+}
+#project li:nth-child(2):after{
+	content:"&#9672 单页面的网站,编码设计均由本人实现,使用jquery实现图片懒加载与图片的轮播，通过媒体查询实现响应式。"
+}
+#project li:nth-child(3):after{
+	content:"&#9733 猫言猫语 Web App(2017年08月至今)"
+}
+#project li:nth-child(4):after{
+	content:"&#9672 4位小伙伴共同合作开发的Web App,供爱猫人士发帖聊天用（更多功能逐步完善）。 个人完成首页，动态显示页面，动态详情页，评论功能的编写。使用vue-cli，express，php进行前后端分离。"
+}
+/*各位大佬，简历可下载*/
+#myresume:after{
+	content:"简历下载(pdf)"
+}
+#myresume{
+	margin: 0 0 10px 30px;
+	color: #3FC1E4;
 }
 	</div>
 	<div id="show">
 		<div id="head"></div>
-		<div id="info">
+		<div id="info" class="fix">
 			<div id="name"></div>
 			<div id="sex"></div>
 			<div id="garduate"></div>
-			<div id="tel"></div>
+			<div id="email"></div>
+			<div id="introduce"></div>
 		</div>
+		<div id="clear"></div>
+		<h3 id="myskill"></h3>
+		<ul id="skill">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<h3 id="myproject"></h3>
+			<ul id="project">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+		</ul>
+		<a href="Resume_Edisonchan.pdf" download="w3logo" id="myresume"></a>
 	</div>
 	<script language="javascript">
 	var index=0;
@@ -97,10 +217,10 @@ body{
 	</script>
 	<script src="jquery-1.12.4.min.js"></script> 
 	<script>
-
-		function autoscroll(){$("#content").scrollTop(10000);}
+	function autoscroll(){$("#content").scrollTop(10000);}
 	 var scrolltimer;
-	 scrolltimer = setInterval(autoscroll,10)
+	 scrolltimer = setInterval(autoscroll,10);
+	 $("li")
 	</script>
 </body>
 </html>
